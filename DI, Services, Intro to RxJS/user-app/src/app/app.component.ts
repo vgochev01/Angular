@@ -10,13 +10,35 @@ import { UsersService } from './users.service';
 
 export class AppComponent implements OnInit {
   users: IUser[] | undefined;
+  errorLoadingUsers: boolean = false;
 
   constructor(
     public usersService: UsersService
   ) {}
 
   ngOnInit(){
-    this.users = this.usersService.getUsers();
+    this.loadUsers();
   }
 
+  loadUsers(search: string = ''): void {
+    this.users = undefined;
+    this.errorLoadingUsers = false;
+
+    this.usersService.loadUsers(search).subscribe(
+        users => this.users = users,
+        error => {
+          console.error(error);
+          this.errorLoadingUsers = true;
+        },
+        () => console.log('Load user stream completed!')
+      );
+  }
+
+  reloadButtonHandler(): void {
+    this.loadUsers();
+  }
+  searchButtonHandler(searchInput: HTMLInputElement): void {
+    const { value } = searchInput;
+    this.loadUsers(value);
+  }
 }

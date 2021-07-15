@@ -1,3 +1,12 @@
 <div id="content">
-    <app-user-list [userArray]="users!" (addUser)="usersService.addUserHandler($event)"></app-user-list>
+    <input #searchInput type="text">
+    <div class="error" *ngIf="errorLoadingUsers">Error loading users! Check your connection!</div>
+    <div *ngIf="!users && !errorLoadingUsers">
+        <p>Loading...</p>
+    </div>
+    <div *ngIf="users">
+        <button (click)="reloadButtonHandler()">Reload</button>
+        <button (click)="searchButtonHandler(searchInput)">Search</button>
+        <app-user-list [userArray]="users"></app-user-list>
+      </div>
 </div>

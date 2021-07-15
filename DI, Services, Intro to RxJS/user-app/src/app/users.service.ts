@@ -1,27 +1,21 @@
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
 import { IUser } from "./interfaces/user";
 
+@Injectable()
 export class UsersService {
 
-  users: IUser[] = [
-    {
-      name: 'Ivan',
-      age: 20
-    },
-    {
-      name: 'Georgi',
-      age: 24
-    },
-    {
-      name: 'Pesho',
-      age: 17
-    }
-  ];
+  users: IUser[] = [];
 
-  addUserHandler(userData: IUser): void{
-    this.users.push(userData);
-  };
+  constructor(
+    private http: HttpClient
+  ) {}
 
-  getUsers(){
-    return this.users;
+  loadUsers(search: string = ''){
+    const query: string = search ? `?email_like=${search}` : '';
+    const url = `https://jsonplaceholder.typicode.com/users${query}`;
+    return this.http.get<IUser[]>(url);
   }
+  
 }
