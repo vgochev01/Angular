@@ -17,6 +17,6 @@ export class ContentService {
 
   loadPosts(limit?: number) {
     const query = limit ? `?limit=${limit}` : '';
-    return this.http.get<IPost[]>(`${API_URL}/posts?${query}`);
+    return this.http.get<IPost[]>(`${API_URL}/posts${query}`);
   }
 }

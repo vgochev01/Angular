@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ContentService } from './content.service';
+import { IPost } from './shared/interface';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'forum-app';
+  recentPosts: IPost[] | undefined;
+  constructor(private contentService: ContentService){
+    this.fetchPosts();
+  }
+
+  fetchPosts(): void{
+    this.recentPosts = undefined;
+    this.contentService.loadPosts(5).subscribe(posts => this.recentPosts = posts);
+  }
 }
