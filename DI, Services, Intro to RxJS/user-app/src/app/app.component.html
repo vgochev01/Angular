@@ -1,5 +1,6 @@
 <div id="content">
-    <input #searchInput type="text">
+<app-time></app-time>
+<input #searchInput type="text">
     <div class="error" *ngIf="errorLoadingUsers">Error loading users! Check your connection!</div>
     <div *ngIf="!users && !errorLoadingUsers">
         <p>Loading...</p>
