@@ -1,4 +1,4 @@
-<h1 *ngIf="!users">Loading...</h1>
+<app-loader *ngIf="!users"></app-loader>
 <div id="users-list" *ngIf="users">
     <app-user-list-item *ngFor="let user of users" [user]="user"></app-user-list-item>
 </div>

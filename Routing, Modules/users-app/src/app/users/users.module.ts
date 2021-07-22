@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http'
 import { UsersService } from './users.service';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { UserRouterModule } from './users-routing.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { UserRouterModule } from './users-routing.module';
   imports: [
     CommonModule,
     HttpClientModule,
-    UserRouterModule
+    UserRouterModule,
+    SharedModule
   ],
   providers: [UsersService],
   exports: [

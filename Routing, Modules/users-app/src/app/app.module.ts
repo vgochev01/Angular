@@ -4,9 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
+import { SharedModule } from './shared/shared.module';
 import { UserRouterModule } from './users/users-routing.module';
 import { UsersModule } from './users/users.module';
-import { UsersService } from './users/users.service';
 
 @NgModule({
   declarations: [
@@ -17,7 +17,8 @@ import { UsersService } from './users/users.service';
     AppRoutingModule,
     UserRouterModule,
     CoreModule,
-    UsersModule
+    UsersModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
