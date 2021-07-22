@@ -1,1 +1,4 @@
-<p>user-list-item works!</p>
+<p>
+    <span>{{user?.username}}</span>
+    <a [routerLink]="['/user-list/', user?.id]"> Details</a>
+</p>
