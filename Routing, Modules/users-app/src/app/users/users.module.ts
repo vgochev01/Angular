@@ -4,17 +4,19 @@ import { UserListComponent } from './user-list/user-list.component';
 import { UserListItemComponent } from './user-list-item/user-list-item.component';
 import { HttpClientModule } from '@angular/common/http'
 import { UsersService } from './users.service';
-import { RouterModule } from '@angular/router';
+import { UserDetailsComponent } from './user-details/user-details.component';
+import { UserRouterModule } from './users-routing.module';
 
 @NgModule({
   declarations: [
     UserListComponent,
-    UserListItemComponent
+    UserListItemComponent,
+    UserDetailsComponent
   ],
   imports: [
     CommonModule,
     HttpClientModule,
-    RouterModule
+    UserRouterModule
   ],
   providers: [UsersService],
   exports: [
