@@ -7,6 +7,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { UserRoutingModule } from '../user/user-routing.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { UserService } from '../user/user.service';
+import { AsideComponent } from './aside/aside.component';
 
 
 
@@ -15,6 +16,7 @@ import { UserService } from '../user/user.service';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
+    AsideComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +25,8 @@ import { UserService } from '../user/user.service';
   exports: [
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    AsideComponent
   ],
   providers: [UserService]
 })

@@ -4,25 +4,25 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import { ThemeComponent } from './theme/theme.component';
-import { ContentService } from './content.service';
+
 import { AppRoutingModule } from './app-routing.module';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { UserModule } from './user/user.module';
+import { ThemeModule } from './theme/theme.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ThemeComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     CoreModule,
     HttpClientModule,
     AppRoutingModule,
-    UserModule
+    UserModule,
+    ThemeModule
   ],
-  providers: [ContentService],
+  providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

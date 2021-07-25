@@ -19,6 +19,7 @@ export class UserService {
 
   login(email: string, password: string): void{
     this.user = {
+      userId: '5fa64b162183ce1728ff371d',
       username: 'Test',
       email,
       password
